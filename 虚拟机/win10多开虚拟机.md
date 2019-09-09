@@ -1,19 +1,19 @@
 ### Vagrant+VirtualBox多开虚拟机-WIN10
 
-1. 下载并安装Vagrant，VirtualBox 
+#### 1. 下载并安装Vagrant，VirtualBox 
 
 链接：https://pan.baidu.com/s/1fI2faXYpuIgroGWkH5nelQ  
 提取码：e7wv  
 （或者去 virtual box 和 Vagrant 官网下载 window 版本软件，并安装完毕）
 
-2. 环境准备 
+#### 2. 环境准备 
 
 关闭 Hyper-V 的 windows 功能，中间可能需要重启系统（找不到就不管）
 打开控制面板--》程序和功能--》启用或关闭windows功能
 
 ![图片1.png](images/图片1.png)
 
-3. 使用vagrant version命令，查看vagrant是否安装成功
+#### 3. 使用vagrant version命令，查看vagrant是否安装成功
 
 ```
 vagrant version
@@ -21,9 +21,9 @@ vagrant version
 看到版本号则证明安装成功
 ![图片2.png](images/图片2.png)
 
-4. 新建一个vagrant目录，区别于上面安装的vagrant安装目录
+#### 4. 新建一个vagrant目录，区别于上面安装的vagrant安装目录
 
-5. 使用浏览器打开官网，选择自己要下载的虚拟机版本，点击Copy
+#### 5. 使用浏览器打开官网，选择自己要下载的虚拟机版本，点击Copy
 
 vagrantbox官网地址：http://www.vagrantbox.es/ 
 
@@ -31,14 +31,14 @@ vagrantbox官网地址：http://www.vagrantbox.es/
 
 ![图片3.png](images/图片3.png)
 
-6. 在你刚才新建的vagrant目录下，执行cmd命令，执行vagrant box add 命令，把官网拷贝的地址沾在add后面
+#### 6. 在你刚才新建的vagrant目录下，执行cmd命令，执行vagrant box add 命令，把官网拷贝的地址沾在add后面
 
 ![图片4.png](images/图片4.png)
 ```
 vagrant box add CentOS7 https://github.com/tommy-muehle/puppet-vagrant-boxes/releases/download/1.1.0/centos-7.0-x86_64.box
 ```
 
-7. 等待其执行完以后，执行vagrant box list查看是否添加成功
+#### 7. 等待其执行完以后，执行vagrant box list查看是否添加成功
 
 ```
 vagrant box list
@@ -48,7 +48,7 @@ vagrant box list
 
 ![图片5.png](images/图片5.png)
 
-8. 初始化刚才添加的box
+#### 8. 初始化刚才添加的box
 
 ```
 vagrant init CentOS7
@@ -57,7 +57,7 @@ vagrant init CentOS7
 
 ![图片6.png](images/图片6.png)
 
-9. 编辑Vagrantfile文件，配置多虚拟机，这里设置3个
+#### 9. 编辑Vagrantfile文件，配置多虚拟机，这里设置3个
 这是虚拟机启动的配置文件，vagrantfile 的语法是 Ruby，这里配置多开虚拟机环境：
 
 ```
@@ -148,17 +148,17 @@ N.each do |i|
 end
 ```
 
-10. 在之前打开的控制台那里执行vagrant up，启动虚拟机
+#### 10. 在之前打开的控制台那里执行vagrant up，启动虚拟机
 
 ```
 vagrant up
 ```
 
-11. 打开Oracle VM VirtualBox，可以看到刚才配置的3台虚拟机已经启动
+#### 11. 打开Oracle VM VirtualBox，可以看到刚才配置的3台虚拟机已经启动
 
 ![图片7.png](images/图片7.png)
 
-使用XSHell进行连接，用户名是root，密码为vagrant
+使用XShell进行连接，用户名是root，密码为vagrant
 
 IP分别为:
 192.168.56.11，192.168.56.12，192.168.56.13
